@@ -17,16 +17,18 @@
   --color-muted: rgb(107 114 128);   /* date/secondary */
 
   /* Brand & status */
-  --color-primary: rgb(168 85 247);
-  --color-success: rgb(34 197 94);
-  --color-warn:    rgb(234 179 8);
-  --color-danger:  rgb(239 68 68);
+  --color-primary: rgb(65, 133, 253);
+  --color-secondary:rgb(255, 115, 149);
 
   /* Chart accents for the UI */
-  --color-chart-purple: rgb(124 58 237);
-  --color-chart-violet: rgb(167 139 250);
-  --color-chart-pink:   rgb(236 72 153);
-  --color-chart-orange: rgb(249 115 22);
+  --color-chart-pink:       rgb(248, 81, 238);
+  --color-chart-purple:     rgb(128, 45, 250);
+
+  --color-chart-yellow:     rgb(241, 193, 111);
+  --color-chart-orange:     rgb(231, 71, 115);
+
+  --color-chart-light-blue: rgb(64, 131, 233);
+  --color-chart-dark-blue:    rgb(52, 61, 244);
 
   /* Radius */
   --radius-card: 1rem; /* enables rounded-card */
@@ -35,20 +37,24 @@
 /* --- Dark overrides (runtime) --- */
 /* Utilities like bg-bg/text-text will switch automatically via CSS vars. */
 :root.dark {
-  --color-background: rgb(13 16 33);
+  --color-background: rgb(21, 25, 59);
   --color-surface: rgb(22 25 48);
-  --color-card: rgb(18 22 43);
+  --color-card: rgb(31, 36, 68);
   --color-border: rgb(44 48 78);
 
   --color-text:  rgb(241 245 249);
   --color-muted: rgb(156 163 175);
 
   /* Slightly brighter primary in dark */
-  --color-primary: rgb(192 132 252);
+  --color-primary: rgb(65, 133, 253);
 }
 
 /* (Optional) a couple of small app primitives */
 .card { @apply rounded-card bg-card border border-border p-4 shadow-sm; }
 .badge { @apply px-3 py-1 rounded-full text-xs font-medium; }
-body { @apply bg-background text-text antialiased; }
 
+.gardient-pink-to-purple { @apply bg-gradient-to-r from-chart-pink to-chart-purple; }
+.gardient-yellow-to-orange { @apply bg-gradient-to-r from-chart-yellow to-chart-orange; }
+.gardient-light-blue-to-dark-blue { @apply bg-gradient-to-r from-chart-light-blue to-chart-dark-blue; }
+
+body { @apply bg-background text-text antialiased; }
