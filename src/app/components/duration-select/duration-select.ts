@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DurationSelect {
   @Input() selectedDuration: 'DAY' | 'WEEK' | 'MONTH' = 'WEEK';
+
+  durationOptions: Array<'DAY' | 'WEEK' | 'MONTH'> = ['DAY', 'WEEK', 'MONTH'];
 }

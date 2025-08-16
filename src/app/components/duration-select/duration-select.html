@@ -1,23 +1,22 @@
-<div class="flex items-center p-4 text-2xl text-muted">
-  <button
-    [ngClass]="{'text-text': selectedDuration === 'DAY'}"
-    class="flex-1 text-start hover:text-text hover:cursor-pointer"
-    type="button"
-    (click)="this.selectedDuration = 'DAY'"
-  >Day
-</button>
-  <button
-    [ngClass]="{'text-text': selectedDuration === 'WEEK'}"
-    class="flex-1 text-center hover:text-text hover:cursor-pointer"
-    type="button"
-    (click)="this.selectedDuration = 'WEEK'"
-  >Week
-</button>
-  <button
-    [ngClass]="{'text-text': selectedDuration === 'MONTH'}"
-    class="flex-1 text-end hover:text-text hover:cursor-pointer"
-    type="button"
-    (click)="this.selectedDuration = 'MONTH'"
-  >Month
-</button>
+<div class="flex items-center p-4 text-2xl text-muted gap-2">
+  @for (duration of durationOptions; track $index) {
+    <button
+      type="button"
+      class="flex-1 text-center hover:text-text hover:cursor-pointer"
+      [class.text-text]="selectedDuration === duration"
+      (click)="selectedDuration = duration"
+    >
+      {{ duration | titlecase }}
+      <div
+        class="block h-2 mt-2 mx-auto max-w-18 rounded 
+              bg-gradient-to-r from-chart-pink to-chart-purple
+              transition origin-center duration-200 ease-out"
+        [class.scale-x-100]="selectedDuration === duration"
+        [class.opacity-100]="selectedDuration === duration"
+        [class.scale-x-0]="selectedDuration !== duration"
+        [class.opacity-0]="selectedDuration !== duration"
+        style="transform-origin:center"
+      ></div>
+    </button>
+  }
 </div>
