@@ -1,0 +1,53 @@
+@import "tailwindcss" source("../src");
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  
+  /* Foundations */
+  --color-background: rgb(250 250 255);
+  --color-surface: rgb(255 255 255);
+  --color-card: rgb(255 255 255);
+  --color-border: rgb(229 231 235);
+
+  /* Typography */
+  --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --color-text: rgb(17 24 39);       /* default text */
+  --color-muted: rgb(107 114 128);   /* date/secondary */
+
+  /* Brand & status */
+  --color-primary: rgb(168 85 247);
+  --color-success: rgb(34 197 94);
+  --color-warn:    rgb(234 179 8);
+  --color-danger:  rgb(239 68 68);
+
+  /* Chart accents for the UI */
+  --color-chart-purple: rgb(124 58 237);
+  --color-chart-violet: rgb(167 139 250);
+  --color-chart-pink:   rgb(236 72 153);
+  --color-chart-orange: rgb(249 115 22);
+
+  /* Radius */
+  --radius-card: 1rem; /* enables rounded-card */
+}
+
+/* --- Dark overrides (runtime) --- */
+/* Utilities like bg-bg/text-text will switch automatically via CSS vars. */
+:root.dark {
+  --color-background: rgb(13 16 33);
+  --color-surface: rgb(22 25 48);
+  --color-card: rgb(18 22 43);
+  --color-border: rgb(44 48 78);
+
+  --color-text:  rgb(241 245 249);
+  --color-muted: rgb(156 163 175);
+
+  /* Slightly brighter primary in dark */
+  --color-primary: rgb(192 132 252);
+}
+
+/* (Optional) a couple of small app primitives */
+.card { @apply rounded-card bg-card border border-border p-4 shadow-sm; }
+.badge { @apply px-3 py-1 rounded-full text-xs font-medium; }
+body { @apply bg-background text-text antialiased; }
