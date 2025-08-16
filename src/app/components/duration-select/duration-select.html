@@ -1,0 +1,23 @@
+<div class="flex items-center p-4 text-2xl text-muted">
+  <button
+    [ngClass]="{'text-text': selectedDuration === 'DAY'}"
+    class="flex-1 text-start hover:text-text hover:cursor-pointer"
+    type="button"
+    (click)="this.selectedDuration = 'DAY'"
+  >Day
+</button>
+  <button
+    [ngClass]="{'text-text': selectedDuration === 'WEEK'}"
+    class="flex-1 text-center hover:text-text hover:cursor-pointer"
+    type="button"
+    (click)="this.selectedDuration = 'WEEK'"
+  >Week
+</button>
+  <button
+    [ngClass]="{'text-text': selectedDuration === 'MONTH'}"
+    class="flex-1 text-end hover:text-text hover:cursor-pointer"
+    type="button"
+    (click)="this.selectedDuration = 'MONTH'"
+  >Month
+</button>
+</div>
