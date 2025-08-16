@@ -1,7 +1,10 @@
 <div class="flex justify-between items-end p-5 top-0 left-0 right-0 bg-background">
   <h1 class="text-3xl mb-0 font-bold">Sleep Record</h1>
-  <div class="mb-1" (click)="toggleDarkMode()">
-    <i *ngIf="this.isDarkMode" class="fa-solid fa-xl fa-sun"></i>
-    <i *ngIf="!this.isDarkMode" class="fa-solid fa-xl fa-moon"></i>
+  <div class="mb-1 text-text/80 hover:text-text hover:cursor-pointer" (click)="toggleDarkMode()">
+    @if(this.isDarkMode) {
+      <i class="fa-solid fa-xl fa-sun"></i>
+    } @else {
+      <i class="fa-solid fa-xl fa-moon"></i>
+    }
   </div>
 </div>

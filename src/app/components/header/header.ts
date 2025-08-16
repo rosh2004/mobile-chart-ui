@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
