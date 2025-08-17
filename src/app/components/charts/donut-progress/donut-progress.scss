@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  width: 100%
+}
+.chart {
+  min-width: 50px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.chart-lg {
+  height: 700px;
+}
+
+:host {
+  --donut-gray-bg: rgb(243, 243, 245);
+}
+
+.dark :host {
+  --donut-gray-bg: rgb(55, 59, 88);
+}

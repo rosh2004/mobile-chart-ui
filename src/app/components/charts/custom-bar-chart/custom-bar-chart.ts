@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { MockServerService } from './mock-server.service';
 import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
-import { echarts } from './custom-echarts';
-import { color, EChartsCoreOption } from 'echarts/core';
+import { EChartsCoreOption } from 'echarts/core';
 import { hmsToSeconds, secondsToHM } from '../../../shared/utils/time-utils';
-import { count, min } from 'rxjs';
+import { echarts } from './custom-echarts';
 
 @Component({
   selector: 'app-custom-bar-chart',
@@ -43,6 +41,7 @@ export class CustomBarChart {
         },
         color: 'var(--bar-y-axis-label-color)', // gray-600 style
         fontWeight: 'bold',
+        margin: 15
       },
       splitLine: {
         lineStyle: {
@@ -141,17 +140,4 @@ export class CustomBarChart {
   loading = false;
 
 
-  constructor(private api: MockServerService) {}
-
-  // getData() {
-  //   this.loading = true;
-  //   this.api
-  //     .getData()
-  //     .then((data) => {
-  //       this.mergeOption = { series: [{ data }] };
-  //     })
-  //     .then(() => {
-  //       this.loading = false;
-  //     });
-  // }
 }

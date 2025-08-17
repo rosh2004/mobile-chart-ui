@@ -15,7 +15,7 @@
     "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --color-text: rgb(17 24 39);       /* default text */
   --color-muted: rgb(148, 149, 165);   /* date/secondary */
-  --color-muted-light: rgb(233, 219, 237);
+  --color-muted-light: rgb(201, 202, 214);
 
   /* Brand & status */
   --color-primary: rgb(65, 133, 253);
@@ -47,7 +47,7 @@
 
   --color-text:  rgb(241 245 249);
   --color-muted: rgb(156 163 175);
-  --color-muted-light: rgb(200, 201, 209);
+  --color-muted-light: rgb(123, 125, 143);
 
   /* Slightly brighter primary in dark */
   --color-primary: rgb(65, 133, 253);
@@ -55,7 +55,7 @@
 }
 
 /* (Optional) a couple of small app primitives */
-.card { @apply rounded-card bg-card border border-border p-4 shadow-sm; }
+.card { @apply rounded-lg bg-card shadow-xl }
 .badge { @apply px-3 py-1 rounded-full text-xs font-medium; }
 
 .gardient-pink-to-purple { @apply bg-gradient-to-r from-chart-pink to-chart-purple; }
