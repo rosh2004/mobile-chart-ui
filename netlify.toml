@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/chat-ui-app"
+  publish = "dist/chart-ui-app/browser"
 
 # Redirect all routes to index.html (fix Angular routing 404s)
 [[redirects]]
