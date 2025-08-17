@@ -6,8 +6,8 @@ import {
   GridComponent,
   LegendComponent,
 } from 'echarts/components';
-import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
-import Marcaron from './marcaron';
+import { SVGRenderer } from 'echarts/renderers';
+import CustomBarTheme from './custom-theme';
 
 echarts.use([
   TitleComponent,
@@ -18,6 +18,6 @@ echarts.use([
   SVGRenderer,
   LegendComponent
 ]);
-echarts.registerTheme('macarons', Marcaron);
+echarts.registerTheme('customBarTheme', CustomBarTheme);
 
 export { echarts };

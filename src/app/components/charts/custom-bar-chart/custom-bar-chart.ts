@@ -59,7 +59,7 @@ export class CustomBarChart {
         itemStyle: { color: 'transparent' },
         silent: true,                // no tooltip
         emphasis: { disabled: true },
-        barWidth: '18%',
+        barWidth: '20%',
         showLegendSymbol: false,
       },
       {
@@ -83,10 +83,10 @@ export class CustomBarChart {
             { offset: 1, color: 'var(--color-chart-purple)' }   // bottom
           ]),
           borderRadius: 50, // Top-left and top-right corners rounded
-          shadowColor: 'rgba(248, 81, 238, 0.3)',
+          shadowColor: 'rgba(248, 81, 238, 0.4)',
           shadowBlur: 8,
-          shadowOffsetX: 4,
-          shadowOffsetY: 6,
+          shadowOffsetX: 6,
+          shadowOffsetY: 10,
         }
       },
       {
@@ -110,10 +110,10 @@ export class CustomBarChart {
             { offset: 1, color: 'var(--color-chart-orange)' }   // bottom
           ]), 
           borderRadius: 50, // Top-left and top-right corners rounded
-          shadowColor: 'rgba(241, 193, 111, 0.3)',
+          shadowColor: 'rgba(241, 193, 111, 0.4)',
           shadowBlur: 8,
-          shadowOffsetX: 4,
-          shadowOffsetY: 6,
+          shadowOffsetX: 6,
+          shadowOffsetY: 10,
         }
       },
     ],
