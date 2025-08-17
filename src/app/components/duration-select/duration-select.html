@@ -1,59 +1,71 @@
 <div class="flex items-center p-4 text-2xl text-muted gap-2">
     <button
       type="button"
-      class="flex-1 px-3 text-start hover:text-text hover:cursor-pointer"
+      class="flex-1 flex jsutify-start hover:text-text hover:cursor-pointer"
       [class.text-text]="selectedDuration === 'DAY'"
       (click)="selectedDuration = 'DAY'"
     >
-      {{ 'DAY' | titlecase }}
-      <div
-        class="block h-2 mt-2 mr-auto w-16 sm:w-18 md:w-32 xl:w-64 rounded
-              gardient-pink-to-purple
-              transition origin-center duration-200 ease-out"
-        [class.scale-x-100]="selectedDuration === 'DAY'"
-        [class.opacity-100]="selectedDuration === 'DAY'"
-        [class.scale-x-0]="selectedDuration !== 'DAY'"
-        [class.opacity-0]="selectedDuration !== 'DAY'"
-        style="transform-origin:center"
-      ></div>
+      <div class="flex flex-col align-center">
+        <div>
+          {{ 'DAY' | titlecase }}
+        </div>
+        <div
+          class="block h-2 mt-2 mr-auto w-16 sm:w-18 md:w-24 rounded
+                gardient-pink-to-purple
+                transition origin-center duration-200 ease-out"
+          [class.scale-x-100]="selectedDuration === 'DAY'"
+          [class.opacity-100]="selectedDuration === 'DAY'"
+          [class.scale-x-0]="selectedDuration !== 'DAY'"
+          [class.opacity-0]="selectedDuration !== 'DAY'"
+          style="transform-origin:center"
+        ></div>
+      </div>
     </button>
 
     <button
       type="button"
-      class="flex-1 px-3 text-center hover:text-text hover:cursor-pointer"
+      class="flex-1 flex justify-center hover:text-text hover:cursor-pointer"
       [class.text-text]="selectedDuration === 'WEEK'"
       (click)="selectedDuration = 'WEEK'"
     >
-      {{ 'WEEK' | titlecase }}
-      <div
-        class="block h-2 mt-2 mx-auto w-16 sm:w-18 md:w-32 xl:w-64   rounded 
-              gardient-pink-to-purple
-              transition origin-center duration-200 ease-out"
-        [class.scale-x-100]="selectedDuration === 'WEEK'"
-        [class.opacity-100]="selectedDuration === 'WEEK'"
-        [class.scale-x-0]="selectedDuration !== 'WEEK'"
-        [class.opacity-0]="selectedDuration !== 'WEEK'"
-        style="transform-origin:center"
-      ></div>
+      <div class="flex flex-col align-center">
+        <div>
+          {{ 'WEEK' | titlecase }}
+        </div>
+        <div
+          class="block h-2 mt-2 mx-auto w-16 sm:w-18 md:w-24 rounded 
+                gardient-pink-to-purple
+                transition origin-center duration-200 ease-out"
+          [class.scale-x-100]="selectedDuration === 'WEEK'"
+          [class.opacity-100]="selectedDuration === 'WEEK'"
+          [class.scale-x-0]="selectedDuration !== 'WEEK'"
+          [class.opacity-0]="selectedDuration !== 'WEEK'"
+          style="transform-origin:center"
+        ></div>
+      </div>
     </button>
 
     <button
       type="button"
-      class="flex-1 px-3 text-end hover:text-text hover:cursor-pointer"
+      class="flex-1 flex justify-end hover:text-text hover:cursor-pointer"
       [class.text-text]="selectedDuration === 'MONTH'"
       (click)="selectedDuration = 'MONTH'"
     >
-      {{ 'MONTH' | titlecase }}
-      <div
-        class="block h-2 mt-2 ms-auto w-16 sm:w-18 md:w-32 xl:w-64   rounded 
-              gardient-pink-to-purple
-              transition origin-center duration-200 ease-out"
-        [class.scale-x-100]="selectedDuration === 'MONTH'"
-        [class.opacity-100]="selectedDuration === 'MONTH'"
-        [class.scale-x-0]="selectedDuration !== 'MONTH'"
-        [class.opacity-0]="selectedDuration !== 'MONTH'"
-        style="transform-origin:center"
-      ></div>
+      <div class="flex flex-col align-center">
+        <div>
+          {{ 'MONTH' | titlecase }}
+        </div>
+        <div
+          class="block h-2 mt-2 ms-auto w-16 sm:w-18 md:w-24   rounded 
+                gardient-pink-to-purple
+                transition origin-center duration-200 ease-out"
+          [class.scale-x-100]="selectedDuration === 'MONTH'"
+          [class.opacity-100]="selectedDuration === 'MONTH'"
+          [class.scale-x-0]="selectedDuration !== 'MONTH'"
+          [class.opacity-0]="selectedDuration !== 'MONTH'"
+          style="transform-origin:center"
+        ></div>
+      </div>
     </button>
     
 </div>
