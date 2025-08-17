@@ -35,6 +35,8 @@
   --radius-card: 1rem; /* enables rounded-card */
 }
 
+
+
 /* --- Dark overrides (runtime) --- */
 /* Utilities like bg-bg/text-text will switch automatically via CSS vars. */
 :root.dark {
@@ -49,6 +51,7 @@
 
   /* Slightly brighter primary in dark */
   --color-primary: rgb(65, 133, 253);
+
 }
 
 /* (Optional) a couple of small app primitives */

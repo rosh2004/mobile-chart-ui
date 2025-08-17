@@ -21,7 +21,7 @@ export class CustomBarChart {
       data: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
       axisLine: false,
       axisLabel: {
-        color: 'var(--x-axis-label-color)', // gray-600 style
+        color: 'var(--bar-x-axis-label-color)', // gray-600 style
       },
     },
     grid: {
@@ -39,12 +39,12 @@ export class CustomBarChart {
         formatter: (value: number) => {
           return secondsToHM(value);
         },
-        color: 'var(--y-axis-label-color)', // gray-600 style
+        color: 'var(--bar-y-axis-label-color)', // gray-600 style
         fontWeight: 'bold',
       },
       splitLine: {
         lineStyle: {
-        color: 'var(--split-line-color)'
+        color: 'var(--bar-split-line-color)'
         }
       }
     },
@@ -108,9 +108,9 @@ export class CustomBarChart {
           ]), 
           borderRadius: 50, // Top-left and top-right corners rounded
           shadowColor: 'rgba(241, 193, 111, 0.3)',
-          shadowBlur: 6,
+          shadowBlur: 8,
           shadowOffsetX: 4,
-          shadowOffsetY: 3,
+          shadowOffsetY: 6,
         }
       },
       

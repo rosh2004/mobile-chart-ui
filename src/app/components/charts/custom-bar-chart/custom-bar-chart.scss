@@ -1,5 +1,5 @@
 .chart {
-  height: 300px;
+  height: 320px;
 }
 
 .chart-lg {
@@ -7,7 +7,13 @@
 }
 
 :host {
-  --split-line-color: rgb(232, 230, 238);
-  --y-axis-label-color: rgb(200, 200, 209);
-  --x-axis-label-color: rgb(163, 164, 178);
+  --bar-split-line-color: rgb(232, 230, 238);
+  --bar-y-axis-label-color: rgb(200, 200, 209);
+  --bar-x-axis-label-color: rgb(163, 164, 178);
+}
+
+.dark :host {
+  --bar-split-line-color: rgb(64, 67, 95);
+  --bar-y-axis-label-color: rgb(77, 80, 105);
+  --bar-x-axis-label-color: rgb(218, 219, 224);
 }
