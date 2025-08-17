@@ -1,0 +1,13 @@
+.chart {
+  height: 300px;
+}
+
+.chart-lg {
+  height: 700px;
+}
+
+:host {
+  --split-line-color: rgb(232, 230, 238);
+  --y-axis-label-color: rgb(200, 200, 209);
+  --x-axis-label-color: rgb(163, 164, 178);
+}

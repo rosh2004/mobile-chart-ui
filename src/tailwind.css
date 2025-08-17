@@ -14,7 +14,8 @@
   --font-sans: "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --color-text: rgb(17 24 39);       /* default text */
-  --color-muted: rgb(107 114 128);   /* date/secondary */
+  --color-muted: rgb(148, 149, 165);   /* date/secondary */
+  --color-muted-light: rgb(233, 219, 237);
 
   /* Brand & status */
   --color-primary: rgb(65, 133, 253);
@@ -44,6 +45,7 @@
 
   --color-text:  rgb(241 245 249);
   --color-muted: rgb(156 163 175);
+  --color-muted-light: rgb(200, 201, 209);
 
   /* Slightly brighter primary in dark */
   --color-primary: rgb(65, 133, 253);
