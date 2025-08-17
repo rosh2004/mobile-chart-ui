@@ -75,7 +75,8 @@ export class CustomBarChart {
           hmsToSeconds('23:10') - this.invisibleBaseLine,
         ],
         type: 'bar',
-        barWidth: 10,
+        barWidth: '20%',
+        emphasis: { disabled: true },
         clip: false,
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -102,7 +103,8 @@ export class CustomBarChart {
           hmsToSeconds('0'),
         ],
         type: 'bar',
-        barWidth: 10,
+        barWidth: '20%',
+        emphasis: { disabled: true },
         clip: false,
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -131,6 +133,7 @@ export class CustomBarChart {
         fontweight: 'bold',
       },
       left: 0,
+      emphasis: { disabled: true },
     },
   };
 
