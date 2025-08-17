@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="px-5 max-w-160 pb-5 md:mx-auto">
+<div class="px-5 max-w-160 pb-5 mx-auto">
   <app-duration-select></app-duration-select>
 
   <app-custom-bar-chart></app-custom-bar-chart>
@@ -8,32 +8,37 @@
 
   <div class="mt-6">
     <span>Dec 2 - Dec 8, 2018</span>
-    <div class="flex gap-3 mt-3">
-      <div class="card px-4 py-2 flex-1 max-w-50 h-auto">
-        <span class="text-muted text-sm">Average Time</span>
-        <div class="text-4xl my-4 font-bold">7h 30m</div>
-        <button 
-          class="bg-secondary py-[0.13rem] my-2 text-lg min-w-[5.3rem] px-3 text-white rounded-full"
-        >
-          Details
-        </button>
+    <div class="flex gap-3 justify-around mt-3">
+
+      <div class="flex flex-col card px-4 py-2 flex-1 max-w-60 h-auto">
+        <span class="text-muted text-sm mt-1">Average Time</span>
+        <div class="text-3xl my-4 font-bold">7h 30m</div>
+        <div class="flex-1 flex flex-col justify-end">
+          <button 
+            class="bg-secondary py-[0.13rem] my-2 text-lg w-fit min-w-[5.3rem] px-3 text-white rounded-full"
+          >
+            Details
+          </button>
+        </div>
       </div>
   
-      <div class="card px-4 py-2 flex-1 max-w-50 h-auto">
-        <span class="text-muted text-sm">Sleep Quality</span>
-        <div class="text-4xl my-4 font-bold">85/<span class="text-2xl">100</span></div>
-        <button 
-          class="bg-primary py-[0.13rem] my-2 text-lg min-w-[5.3rem] px-3 text-white rounded-full"
-        >
-          Good
-        </button>
+      <div class="flex flex-col card px-4 py-2 flex-1 max-w-60 h-auto">
+        <span class="text-muted text-sm mt-1">Sleep Quality</span>
+        <div class="text-3xl my-4 font-bold">85/<span class="text-xl">100</span></div>
+        <div class="flex-1 flex flex-col justify-end">
+          <button 
+            class="bg-primary py-[0.13rem] my-2 text-lg w-fit min-w-[5.3rem] h-auto px-3 text-white rounded-full"
+          >
+            Good
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="mt-4">
     <span>Sleeping State</span>
-    <div class="flex mt-8 gap-5 w-100vw overflow-hidden">
+    <div class="flex mt-8 gap-8 w-100vw overflow-hidden">
       <app-donut-progress class="flex-1 p-1"
         [label]="'Awake'"
         [progressColor1]="'var(--color-chart-yellow)'"

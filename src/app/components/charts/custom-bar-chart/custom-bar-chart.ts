@@ -83,10 +83,10 @@ export class CustomBarChart {
             { offset: 1, color: 'var(--color-chart-purple)' }   // bottom
           ]),
           borderRadius: 50, // Top-left and top-right corners rounded
-          shadowColor: 'rgba(248, 81, 238, 0.4)',
+          shadowColor: 'rgba(248, 81, 238, 0.2)',
           shadowBlur: 8,
           shadowOffsetX: 6,
-          shadowOffsetY: 10,
+          shadowOffsetY: 8,
         }
       },
       {
@@ -111,10 +111,10 @@ export class CustomBarChart {
             { offset: 1, color: 'var(--color-chart-orange)' }   // bottom
           ]), 
           borderRadius: 50, // Top-left and top-right corners rounded
-          shadowColor: 'rgba(241, 193, 111, 0.4)',
+          shadowColor: 'rgba(241, 193, 111, 0.2)',
           shadowBlur: 8,
           shadowOffsetX: 6,
-          shadowOffsetY: 10,
+          shadowOffsetY: 8,
         }
       },
     ],
