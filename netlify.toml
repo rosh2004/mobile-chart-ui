@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist/chat-ui-app"
+
+# Redirect all routes to index.html (fix Angular routing 404s)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: long-term caching for assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
