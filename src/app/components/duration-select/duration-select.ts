@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewChild } from '@angular/core';
-import { ChartComponent } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-duration-select',
@@ -9,7 +8,6 @@ import { ChartComponent } from 'ng-apexcharts';
   styleUrl: './duration-select.scss'
 })
 export class DurationSelect {
-  @ViewChild("chart") chart?: ChartComponent;
 
   @Input() selectedDuration: 'DAY' | 'WEEK' | 'MONTH' = 'WEEK';
 
