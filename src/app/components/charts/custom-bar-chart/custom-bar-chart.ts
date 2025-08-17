@@ -27,11 +27,13 @@ export class CustomBarChart {
     grid: {
       left: 0,
       right: 0,
+      top: 30,
+      bottom: 60,
       containLabel: false  // important: prevents extra space for labels
     },
     yAxis: {
       type: 'value',
-      min: hmsToSeconds('7:'),
+      min: hmsToSeconds('7'),
       max: hmsToSeconds('23:00'),
       interval: hmsToSeconds('16:00'),
       
@@ -50,23 +52,24 @@ export class CustomBarChart {
     },
     series: [
        {
-        name: 'baseline',
+        name: '',
         type: 'bar',
         stack: 'sleep',
         data: Array(7).fill(this.invisibleBaseLine),   // baseline for all days
         itemStyle: { color: 'transparent' },
         silent: true,                // no tooltip
         emphasis: { disabled: true },
-        barWidth: '18%'
+        barWidth: '18%',
+        showLegendSymbol: false,
       },
       {
         stack: 'sleep',
-        name: 'Abobve average',
+        name: 'Above average',
         data: [
           hmsToSeconds('23:20') - this.invisibleBaseLine,
           hmsToSeconds('0'),
-          hmsToSeconds('24:00') - this.invisibleBaseLine,
-          hmsToSeconds('23:40') - this.invisibleBaseLine,
+          hmsToSeconds('23:59') - this.invisibleBaseLine,
+          hmsToSeconds('20:40') - this.invisibleBaseLine,
           hmsToSeconds('23') - this.invisibleBaseLine,
           hmsToSeconds('0'),
           hmsToSeconds('23:10') - this.invisibleBaseLine,
@@ -91,7 +94,7 @@ export class CustomBarChart {
         name: 'Below average',
         data: [
           hmsToSeconds('0'),
-          hmsToSeconds('21:30') - this.invisibleBaseLine,
+          hmsToSeconds('19:30') - this.invisibleBaseLine,
           hmsToSeconds('0'),
           hmsToSeconds('0'),
           hmsToSeconds('0'),
@@ -113,8 +116,22 @@ export class CustomBarChart {
           shadowOffsetY: 6,
         }
       },
-      
     ],
+    legend: {
+      show: true,                // force legend visible
+      orient: 'horizontal',      // or 'vertical'
+      bottom: 0,                 // position at bottom
+      icon: 'circle',  
+      itemWidth: 18,           // 👈 icon width
+      itemHeight: 18,             // circle instead of square
+      itemGap: 30,
+      textStyle: {
+        color: 'var(--bar-x-axis-label-color)',
+        fontSize: 12,
+        fontweight: 'bold',
+      },
+      left: 0,
+    },
   };
 
   mergeOption: any;

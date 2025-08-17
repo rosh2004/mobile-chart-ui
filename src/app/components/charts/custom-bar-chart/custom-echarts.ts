@@ -4,6 +4,7 @@ import {
   TitleComponent,
   TooltipComponent,
   GridComponent,
+  LegendComponent,
 } from 'echarts/components';
 import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
 import Marcaron from './marcaron';
@@ -15,6 +16,7 @@ echarts.use([
   LineChart,
   BarChart,
   SVGRenderer,
+  LegendComponent
 ]);
 echarts.registerTheme('macarons', Marcaron);
 
