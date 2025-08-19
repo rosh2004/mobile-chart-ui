@@ -57,6 +57,7 @@ export class DonutProgress implements OnChanges {
     }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if(!this.echartInstance) return;
     if (changes['progress'] ) {
       this.updateProgress();
     }
@@ -66,11 +67,10 @@ export class DonutProgress implements OnChanges {
     }
   }
 
-  onChartInit(echartsInstance: EChartsType){
+  async onChartInit(echartsInstance: EChartsType){
     this.echartInstance = echartsInstance;
-    this.echartInstance.on('finished', () => {
-      this.updateProgress();
-    });
+    await new Promise(resolve => setTimeout(resolve, 0)); // wait for the chart to be fully initialized
+    this.updateProgress();
   }
 
   async updateProgress() {
@@ -91,6 +91,7 @@ export class DonutProgress implements OnChanges {
                   ]),
                   borderRadius: 50,
                 },
+                  emphasis: { disabled: true },
               },
               {
                 type: 'pie',
@@ -99,6 +100,7 @@ export class DonutProgress implements OnChanges {
                 itemStyle: {
                   color: 'var(--donut-gray-bg)', // light gray background
                 },
+                emphasis: { disabled: true },
               },
             ],
         }
