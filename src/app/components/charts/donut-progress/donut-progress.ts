@@ -2,6 +2,7 @@ import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angul
 import { NgxEchartsDirective } from 'ngx-echarts';
 import { EChartsCoreOption, EChartsType } from 'echarts/core';
 import { echarts } from '../../../custom-echarts';
+import { PieSeriesOption } from 'echarts/charts';
 
 @Component({
   selector: 'app-donut-progress',
@@ -26,17 +27,17 @@ export class DonutProgress implements OnChanges {
         startAngle: 90,
         emphasis: { disabled: true },
         label: { show: false },
-        animation: false,
+        animationDurationInitial: 0,
         data: [
           {
             id: 'progress',
             name: 'Progress',
-            value: this.progress,
+            value: 0,
             itemStyle: {
-              // color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-              //   { offset: 0, color: this.progressColor1 },
-              //   { offset: 1, color: this.progressColor2 },
-              // ]),
+              color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                { offset: 0, color: this.progressColor1 },
+                { offset: 1, color: this.progressColor2 },
+              ]),
               borderRadius: 50,
               emphasis: { disabled: true },
             },
@@ -84,10 +85,9 @@ export class DonutProgress implements OnChanges {
 
   async updateProgress() {
     if (!this.echartInstance) return;
-    const series = [
+    const series: PieSeriesOption[] = [
       {
         type: 'pie',
-        animation: true,
         radius: ['80%', '100%'], // donut
         startAngle: 90,
         label: { show: false },
@@ -103,8 +103,8 @@ export class DonutProgress implements OnChanges {
               { offset: 1, color: this.progressColor2 },
             ]),
               borderRadius: 50,
-              emphasis: { disabled: true },
-            }
+            },
+            emphasis: { disabled: true },
           },
           {
             id: 'remainder',
@@ -132,8 +132,7 @@ export class DonutProgress implements OnChanges {
         },
       },
     ]
-
-    this.options = ({
+    this.echartInstance.setOption({
       series,
       graphic: graphic,
     })
