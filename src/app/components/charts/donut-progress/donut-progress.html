@@ -1,2 +1,4 @@
-<div echarts [options]="options" [autoResize]="true" (chartInit)="onChartInit($event)" class="chart"></div>
+@defer{
+  <div echarts [options]="options" [autoResize]="true" (chartInit)="onChartInit($event)" class="chart"></div>
+}
 <div class="text-muted-light text-sm text-center mt-2">{{label}}</div>

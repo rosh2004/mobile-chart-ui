@@ -19,41 +19,40 @@ export class DonutProgress implements OnChanges {
   echartInstance?: EChartsType;
   hasInitialRendered = false;
 
+  series: PieSeriesOption[] = [
+    {
+      type: 'pie',
+      radius: ['80%', '100%'], // donut
+      startAngle: 90,
+      emphasis: { disabled: true },
+      animationDuration: 0,
+      label: { show: false },
+      data: [
+        {
+          id: 'progress',
+          name: 'Progress',
+          value: 0,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              { offset: 0, color: this.progressColor1 },
+              { offset: 1, color: this.progressColor2 },
+            ]),
+            borderRadius: 50,
+          },
+        },
+        {
+          id: 'remainder',
+          name: 'Background',
+          value: 100,
+          itemStyle: {
+            color: 'var(--donut-gray-bg)', // light gray background
+          },
+        },
+      ],
+    },
+  ];
   options: EChartsCoreOption = {
-    series: [
-      {
-        type: 'pie',
-        radius: ['80%', '100%'], // donut
-        startAngle: 90,
-        emphasis: { disabled: true },
-        label: { show: false },
-        animationDurationInitial: 0,
-        data: [
-          {
-            id: 'progress',
-            name: 'Progress',
-            value: 0,
-            itemStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-                { offset: 0, color: this.progressColor1 },
-                { offset: 1, color: this.progressColor2 },
-              ]),
-              borderRadius: 50,
-              emphasis: { disabled: true },
-            },
-          },
-          {
-            id: 'remainder',
-            name: 'Background',
-            value: 100,
-            itemStyle: {
-              color: 'var(--donut-gray-bg)', // light gray background
-            },
-          },
-        ],
-      },
-    ],
-    
+    series: this.series,
   };
 
   @HostListener('window:resize')
@@ -92,6 +91,7 @@ export class DonutProgress implements OnChanges {
         startAngle: 90,
         label: { show: false },
         emphasis: { disabled: true },
+        animationDurationUpdate: 500,
         data: [
           {
             id: 'progress',
@@ -132,7 +132,7 @@ export class DonutProgress implements OnChanges {
         },
       },
     ]
-    this.echartInstance.setOption({
+    this.options = ({
       series,
       graphic: graphic,
     })
