@@ -1,24 +1,24 @@
 import * as echarts from 'echarts/core';
-import { BarChart, LineChart } from 'echarts/charts';
+import { BarChart, LineChart, PieChart } from 'echarts/charts';
 import {
-  TitleComponent,
-  TooltipComponent,
   GridComponent,
   LegendComponent,
+  TitleComponent,
+  TooltipComponent,
 } from 'echarts/components';
 import { SVGRenderer } from 'echarts/renderers';
-import CustomBarTheme from './custom-barchart-theme';
 
+import { GraphicComponent } from 'echarts/components';
 echarts.use([
   TitleComponent,
   TooltipComponent,
-  GridComponent,
   LineChart,
   BarChart,
   SVGRenderer,
-  LegendComponent
+  GraphicComponent,
+  PieChart,
+  LegendComponent,
+  GridComponent
 ]);
-
-echarts.registerTheme('customBarTheme', CustomBarTheme); // Custom theme can be
 
 export { echarts };

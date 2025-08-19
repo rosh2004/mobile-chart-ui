@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
+import { NgxEchartsDirective } from 'ngx-echarts';
 import { EChartsCoreOption } from 'echarts/core';
 import { hmsToSeconds, secondsToHM } from '../../../shared/utils/time-utils';
-import { echarts } from './custom-echarts';
+import { echarts } from '../../../custom-echarts';
 
 @Component({
   selector: 'app-custom-bar-chart',
   imports: [NgxEchartsDirective],
   templateUrl: './custom-bar-chart.html',
   styleUrl: './custom-bar-chart.scss',
-  providers: [provideEchartsCore({ echarts })],
 })
 export class CustomBarChart {
   private readonly invisibleBaseLine = hmsToSeconds('7:30');

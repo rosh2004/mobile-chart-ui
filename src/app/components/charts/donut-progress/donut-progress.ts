@@ -1,15 +1,13 @@
-import { AfterViewInit, Component, HostListener, Input, OnChanges, OutputEmitterRef, SimpleChanges } from '@angular/core';
-import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
-import { ECharts, EChartsCoreOption, EChartsType } from 'echarts/core';
-import { echarts } from './custom-echarts';
-import { delay } from 'rxjs';
+import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { NgxEchartsDirective } from 'ngx-echarts';
+import { EChartsCoreOption, EChartsType } from 'echarts/core';
+import { echarts } from '../../../custom-echarts';
 
 @Component({
   selector: 'app-donut-progress',
   imports: [NgxEchartsDirective],
   templateUrl: './donut-progress.html',
   styleUrls: ['./donut-progress.scss'],
-  providers: [provideEchartsCore({ echarts })],
 })
 export class DonutProgress implements OnChanges {
   @Input() progress = 0;
@@ -18,6 +16,7 @@ export class DonutProgress implements OnChanges {
   @Input() progressColor2 = '#6CAAB0'; // Default green color
 
   echartInstance?: EChartsType;
+  hasInitialRendered = false;
 
   options: EChartsCoreOption = {
     series: [
@@ -25,19 +24,25 @@ export class DonutProgress implements OnChanges {
         type: 'pie',
         radius: ['80%', '100%'], // donut
         startAngle: 90,
+        emphasis: { disabled: true },
+        label: { show: false },
+        animation: false,
         data: [
           {
+            id: 'progress',
             name: 'Progress',
-            value: 0,
+            value: this.progress,
             itemStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-                { offset: 0, color: this.progressColor1 },
-                { offset: 1, color: this.progressColor2 },
-              ]),
+              // color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              //   { offset: 0, color: this.progressColor1 },
+              //   { offset: 1, color: this.progressColor2 },
+              // ]),
               borderRadius: 50,
+              emphasis: { disabled: true },
             },
           },
           {
+            id: 'remainder',
             name: 'Background',
             value: 100,
             itemStyle: {
@@ -45,16 +50,16 @@ export class DonutProgress implements OnChanges {
             },
           },
         ],
-        label: { show: false },
-        hoverAnimation: false,
       },
     ],
+    
   };
 
   @HostListener('window:resize')
     onWindowResize() {
       this.echartInstance?.resize();
     }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if(!this.echartInstance) return;
@@ -67,57 +72,71 @@ export class DonutProgress implements OnChanges {
     }
   }
 
-  async onChartInit(echartsInstance: EChartsType){
+  onChartInit(echartsInstance: EChartsType){
     this.echartInstance = echartsInstance;
-    await new Promise(resolve => setTimeout(resolve, 0)); // wait for the chart to be fully initialized
-    this.updateProgress();
+    this.echartInstance.on('finished', () => {
+      if(this.hasInitialRendered) return;
+      this.hasInitialRendered = true;
+      this.updateProgress();
+    });
+    
   }
 
   async updateProgress() {
     if (!this.echartInstance) return;
-    this.echartInstance.setOption({
-      series: [
-        {
-          type: 'pie',
-          data: [
-              {
-                type: 'pie',
-                name: 'Progress',
-                value: this.progress,
-                itemStyle: {
-                  color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-                    { offset: 0, color: this.progressColor1 },
-                    { offset: 1, color: this.progressColor2 },
-                  ]),
-                  borderRadius: 50,
-                },
-                  emphasis: { disabled: true },
-              },
-              {
-                type: 'pie',
-                name: 'Background',
-                value: 100 - this.progress,
-                itemStyle: {
-                  color: 'var(--donut-gray-bg)', // light gray background
-                },
-                emphasis: { disabled: true },
-              },
-            ],
-        }
-      ],
-      graphic: [
-        {
-          type: 'text',
-          left: 'center',
-          top: 'center',
-          style: {
-            text: String(this.progress) + '%',
-            fontSize: 22,
-            fontWeight: 'bold',
-            fill: 'var(--color-text)',
+    const series = [
+      {
+        type: 'pie',
+        animation: true,
+        radius: ['80%', '100%'], // donut
+        startAngle: 90,
+        label: { show: false },
+        emphasis: { disabled: true },
+        data: [
+          {
+            id: 'progress',
+            name: 'Progress',
+            value: this.progress,
+            itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              { offset: 0, color: this.progressColor1 },
+              { offset: 1, color: this.progressColor2 },
+            ]),
+              borderRadius: 50,
+              emphasis: { disabled: true },
+            }
           },
+          {
+            id: 'remainder',
+            name: 'Background',
+            value: 100 - this.progress,
+            itemStyle: {
+              color: 'var(--donut-gray-bg)', // light gray background
+            },
+            emphasis: { disabled: true },
+          },
+        ],
+      }
+    ];
+
+    const graphic = [
+      {
+        type: 'text',
+        left: 'center',
+        top: 'center',
+        style: {
+          text: String(this.progress) + '%',
+          fontSize: 22,
+          fontWeight: 'bold',
+          fill: 'var(--color-text)',
         },
-      ],
-    });
+      },
+    ]
+
+    this.options = ({
+      series,
+      graphic: graphic,
+    })
   }
+      
 }
